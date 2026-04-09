@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Data | Rain World Guide</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- =========================
+     Navigation / Header
+========================= -->
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Rain World Guide</h1>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="regions.html">Regions</a></li>
+            <li><a href="creatures.html">Creatures</a></li>
+            <li><a href="survival.html">Survival Systems</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="dashboard.html">Saved Data</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================
+     Page Header
+========================= -->
+<section class="page-header">
+    <h2>Your Saved Data</h2>
+</section>
+
+<!-- =========================
+     Dashboard / Saved Data
+========================= -->
+<section class="dashboard">
+
+    <!-- Saved Regions -->
+    <div class="dashboard-card">
+        <h3>Saved Regions</h3>
+        <ul id="saved-regions"></ul>
+    </div>
+
+    <!-- Saved Creatures -->
+    <div class="dashboard-card">
+        <h3>Saved Creatures</h3>
+        <ul id="saved-creatures"></ul>
+    </div>
+
+    <!-- Quiz Scores -->
+    <div class="dashboard-card">
+        <h3>Quiz Scores</h3>
+        <ul id="quiz-scores"></ul>
+    </div>
+
+</section>
+
+<!-- =========================
+     Reset Data Button
+========================= -->
+<div style="text-align:center; margin: 20px;">
+    <button onclick="resetData()" class="btn">Reset All Data</button>
+</div>
+
+<!-- =========================
+     Progress Bar
+========================= -->
+<div class="dashboard-card">
+    <h3>Progress</h3>
+    <p id="progress-text"></p>
+</div>
+
+<div class="progress-bar">
+    <div id="progress-fill"></div>
+</div>
+
+<!-- =========================
+     Background Audio
+========================= -->
+<audio id="bg-audio" loop preload="auto">
+    <source src="assets/audios/rain.MP3" type="audio/mpeg">
+</audio>
+
+<button id="audio-toggle" class="audio-btn">🔊 Sound On</button>
+
+<!-- =========================
+     JavaScript
+========================= -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
