@@ -1,0 +1,344 @@
+<?php
+require_once "database.php";
+$loggedIn = isset($_SESSION['user_id']);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creatures | Rain World Guide</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- =========================
+     Navigation / Header
+========================= -->
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Rain World Guide</h1>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="regions.php">Regions</a></li>
+            <li><a href="creatures.php">Creatures</a></li>
+            <li><a href="scavenger.php">Scavengers</a></li>
+            <li><a href="survival.php">Survival Systems</a></li>
+            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="dashboard.php">Saved Data</a></li>
+            <li>
+                <a href="<?php echo $loggedIn ? 'logout.php' : 'login.php'; ?>">
+                    <?php echo $loggedIn ? 'Logout' : 'Login'; ?>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================
+     Page Header
+========================= -->
+<section class="page-header">
+    <h2>Creatures</h2>
+    <p>Learn predator and prey behavior.</p>
+</section>
+
+<!-- =========================
+     Creatures Container
+========================= -->
+<section class="creatures-container">
+
+    <!-- =========================
+         Creature: Lizard
+    ========================== -->
+    <div class="creature-card">
+        <h3>Lizard</h3>
+        <img src="assets/images/lizard.jpg">
+        <p><strong>Type:</strong> Predator</p>
+        <p class="danger">Threat: High</p>
+        <p>Tracks movement visually and aggressively chases prey.</p>
+        <button onclick="saveCreature('Lizard')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Vulture
+    ========================== -->
+    <div class="creature-card">
+        <h3>Vulture</h3>
+        <img src="assets/images/vulture.png">
+        <p><strong>Type:</strong> Predator</p>
+        <p class="danger">Threat: Very High</p>
+        <p>Aerial predator that swoops down quickly.</p>
+        <button onclick="saveCreature('Vulture')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Batfly
+    ========================== -->
+    <div class="creature-card">
+        <h3>Batfly</h3>
+        <img src="assets/images/batfly.png">
+        <p><strong>Type:</strong> Prey</p>
+        <p>Threat: None</p>
+        <p>A primary food source.</p>
+        <button onclick="saveCreature('Batfly')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Salamander
+    ========================== -->
+    <div class="creature-card">
+        <h3>Salamander</h3>
+        <img src="assets/images/salamander.png">
+        <p><strong>Type:</strong> Predator (Aquatic)</p>
+        <p class="danger">Threat: High</p>
+        <p>Fast underwater hunters that drag prey below.</p>
+        <button onclick="saveCreature('Salamander')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Pole Plant
+    ========================== -->
+    <div class="creature-card">
+        <h3>Pole Plant</h3>
+        <img src="assets/images/poleplant.png" alt="Pole Plant">
+        <p><strong>Type:</strong> Ambush Predator</p>
+        <p class="danger">Threat: Medium</p>
+        <p>
+            Disguised as climbable poles. When grabbed, they lash out and pull prey upward.
+            Always test poles with thrown objects first.
+        </p>
+        <button onclick="saveCreature('Pole Plant')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Monster Kelp
+    ========================== -->
+    <div class="creature-card">
+        <h3>Monster Kelp</h3>
+        <img src="assets/images/kelp.jpeg" alt="Monster Kelp">
+        <p><strong>Type:</strong> Aquatic Predator</p>
+        <p class="danger">Threat: High</p>
+        <p>
+            Lurks in water and grabs anything that swims too close. 
+            Struggles are rarely successful—avoid entirely when possible.
+        </p>
+        <button onclick="saveCreature('Monster Kelp')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Leeches
+    ========================== -->
+    <div class="creature-card">
+        <h3>Leeches</h3>
+        <img src="assets/images/leeches.png" alt="Leeches">
+        <p><strong>Type:</strong> Swarm Predator</p>
+        <p class="danger">Threat: Medium</p>
+        <p>
+            Swarm in water and latch onto the player, slowing movement and pulling them down.
+            Staying on land or moving quickly is key to survival.
+        </p>
+        <button onclick="saveCreature('Leeches')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Centipedes
+    ========================== -->
+    <div class="creature-card">
+        <h3>Centipedes</h3>
+        <img src="assets/images/centipede.jpeg" alt="Centipede">
+        <p><strong>Type:</strong> Predator</p>
+        <p class="danger">Threat: Medium</p>
+        <p>
+            Electrified creatures that stun prey on contact. 
+            Larger variants are more dangerous and harder to escape.
+        </p>
+        <button onclick="saveCreature('Centipedes')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Centiwings
+    ========================== -->
+    <div class="creature-card">
+        <h3>Centiwings</h3>
+        <img src="assets/images/centiwing.png" alt="Centiwing">
+        <p><strong>Type:</strong> Predator</p>
+        <p class="danger">Threat: Medium</p>
+        <p>
+            A flying variant of centipedes that can chase prey through the air, 
+            making them harder to avoid than ground-based versions.
+        </p>
+        <button onclick="saveCreature('Centiwings')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Coalescipede
+    ========================== -->
+    <div class="creature-card">
+        <h3>Coalescipede</h3>
+        <img src="assets/images/coalescipede.png" alt="Coalescipede">
+        <p><strong>Type:</strong> Swarm Predator</p>
+        <p class="danger">Threat: High</p>
+        <p>
+            Small spider-like creatures that merge into a larger mass when grouped, 
+            becoming significantly more dangerous together.
+        </p>
+        <button onclick="saveCreature('Coalescipede')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Spiders
+    ========================== -->
+    <div class="creature-card">
+        <h3>Spiders</h3>
+        <img src="assets/images/spiders.png" alt="Spiders">
+        <p><strong>Type:</strong> Swarm Predator</p>
+        <p class="danger">Threat: High</p>
+        <p>
+            Hunt in groups and overwhelm prey quickly. 
+            Light sources can help deter them in darker regions.
+        </p>
+        <button onclick="saveCreature('Spiders')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Dropwig
+    ========================== -->
+    <div class="creature-card">
+        <h3>Dropwig</h3>
+        <img src="assets/images/dropwig.png" alt="Dropwig">
+        <p><strong>Type:</strong> Ambush Predator</p>
+        <p class="danger">Threat: High</p>
+        <p>
+            Hides on ceilings and drops onto prey below. 
+            Look for subtle movement before passing underneath.
+        </p>
+        <button onclick="saveCreature('Dropwig')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Leviathan
+    ========================== -->
+    <div class="creature-card">
+        <h3>Leviathan</h3>
+        <img src="assets/images/leviathan.png" alt="Leviathan">
+        <p><strong>Type:</strong> Apex Predator</p>
+        <p class="danger">Threat: Extreme</p>
+        <p>
+            Massive aquatic predators that dominate deep waters. 
+            Escape is nearly impossible if one targets you.
+        </p>
+        <button onclick="saveCreature('Leviathan')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Miros Bird
+    ========================== -->
+    <div class="creature-card">
+        <h3>Miros Bird</h3>
+        <img src="assets/images/mirosbird.png" alt="Miros Bird">
+        <p><strong>Type:</strong> Predator</p>
+        <p class="danger">Threat: High</p>
+        <p>
+            Fast, aggressive creatures that patrol specific areas. 
+            Their speed makes outrunning them very difficult.
+        </p>
+        <button onclick="saveCreature('Miros Bird')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Brother Long Legs
+    ========================== -->
+    <div class="creature-card">
+        <h3>Brother Long Legs</h3>
+        <img src="assets/images/bll.png" alt="Brother Long Legs">
+        <p><strong>Type:</strong> Blind Predator</p>
+        <p class="danger">Threat: Very High</p>
+        <p>
+            Tracks prey through sound rather than sight. 
+            Slow, careful movement is essential to avoid detection.
+        </p>
+        <button onclick="saveCreature('Brother Long Legs')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Daddy Long Legs
+    ========================== -->
+    <div class="creature-card">
+        <h3>Daddy Long Legs</h3>
+        <img src="assets/images/dll.png" alt="Daddy Long Legs">
+        <p><strong>Type:</strong> Apex Predator</p>
+        <p class="danger">Threat: Extreme</p>
+        <p>
+            Highly dangerous and nearly impossible to escape once grabbed. 
+            Avoid entirely and stay silent in their presence.
+        </p>
+        <button onclick="saveCreature('Daddy Long Legs')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Worm Grass
+    ========================== -->
+    <div class="creature-card">
+        <h3>Worm Grass</h3>
+        <img src="assets/images/wormgrass.png" alt="Worm Grass">
+        <p><strong>Type:</strong> Environmental Hazard</p>
+        <p class="danger">Threat: High</p>
+        <p>
+            Appears as normal grass but pulls prey underground when stepped on. 
+            Avoid walking through dense patches.
+        </p>
+        <button onclick="saveCreature('Worm Grass')" class="btn">Save Creature</button>
+    </div>
+
+    <!-- =========================
+         Creature: Overseer
+    ========================== -->
+    <div class="creature-card">
+        <h3>Overseer</h3>
+        <img src="assets/images/overseer.jpeg" alt="Overseer">
+
+        <p><strong>Type:</strong> Observer / Guide</p>
+        <p>Threat: None</p>
+
+        <div class="hover-info">
+            <p>
+                Floating, mechanical-like entities that observe the world.
+                Some guide the player by projecting symbols or images.
+                They are not hostile but may influence exploration.
+            </p>
+        </div>
+
+        <button onclick="saveCreature('Overseer')" class="btn">Save Creature</button>
+    </div>
+
+</section>
+
+<!-- =========================
+     Image Lightbox
+========================= -->
+<div id="lightbox" class="lightbox">
+    <span id="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Expanded view">
+</div>
+
+<!-- =========================
+     Background Audio + Toggle
+========================= -->
+<audio id="bg-audio" loop>
+    <source src="assets/audios/rain.MP3" type="audio/mpeg">
+</audio>
+
+<button id="audio-toggle" class="audio-btn">🔊 Sound On</button>
+
+<!-- =========================
+     JavaScript
+========================= -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>

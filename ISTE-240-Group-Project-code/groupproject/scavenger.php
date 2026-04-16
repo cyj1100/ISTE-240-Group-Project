@@ -1,0 +1,132 @@
+<?php
+require_once "database.php";
+$loggedIn = isset($_SESSION['user_id']);
+?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survival Systems | Rain World Guide</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+
+<!-- =========================
+     Navigation / Header
+========================= -->
+<header>
+    <nav class="navbar">
+        <h1 class="logo">Rain World Guide</h1>
+
+        <!-- Navigation Links -->
+        <ul class="nav-links">
+            <li><a href="index.php">Home</a></li>
+            <li><a href="regions.php">Regions</a></li>
+            <li><a href="creatures.php">Creatures</a></li>
+            <li><a href="scavenger.php">Scavengers</a></li>
+            <li><a href="survival.php">Survival Systems</a></li>
+            <li><a href="quiz.php">Quiz</a></li>
+            <li><a href="dashboard.php">Saved Data</a></li>
+            <li>
+                <a href="<?php echo $loggedIn ? 'logout.php' : 'login.php'; ?>">
+                    <?php echo $loggedIn ? 'Logout' : 'Login'; ?>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<!-- =========================
+     Page Header
+========================= -->
+<section class="page-header">
+    <h2>Scavengers</h2>
+    <p>Learn the core mechanics of the scavenger creatures (Trading, Reputation).</p>
+</section>
+
+<!-- =========================
+     System: Rain Cycle
+========================= -->
+<section class="system">
+    <h3>Scavengers</h3>
+    <img src="assets/images/scav.jpg">
+    <p>
+        Scavengers are unlike other creatures in Rain World, unlike most animals which are 
+        either prey or predator, scavengers are able to use tools like spears and explosives like
+        the slug cat protagonist. Depending on which type of slugcat you play they can either be neutral or aggressive 
+        towards you. To bring their reputation up you can either give them tools or pearls, which in return they will help you
+        when in danger or follow you.
+    </p>
+
+    <h4>How they work and Strategy</h4>
+    <ul>
+        <li>When encountering scavengers while your reputation with them is unfriendly or neutral, crouch and drop any weapons to avoid conflict and seem less threatening.</li>
+        <li>All scavengers have different personalities, so even if you have a good reputation, a overly aggressive scavenger might still kill you, watch for their body language.</li>
+        <li>You are able to give valuable items to scavengers and help kill predators to heighten reputation.</li>
+    </ul>
+
+    <h4>Abilities & Behavior</h4>
+    <img src="assets/images/Scavenger_Cherrybomb.gif">
+    <ul>
+        <li>Like the slugcat, scavengers are able to carry spears, grenades, and rocks to throw at enemies, although they are able to carry multiple spears on their backs.</li>
+        <li>Their movements are similar to the slugcat, being able to crawl, walk, climb, and hang from poles, albeit they move slightly faster than the slugcat.</li>
+        <li>Use shortcuts and tunnels to move efficiently</li>
+    </ul>
+
+
+    <h4>Communication and Body Language</h4>
+    <p>
+        Scavengers use body language to communicate what they want with each other and with the slugcat.
+    </p>
+
+    <ul>
+        <img src="assets/images/Scav_Pointing_Spear.gif">
+        <li>When scavengers want a valuable from the player, they point at the item with their spear or hand.</li>
+        <img src="assets/images/Scavenger_Threatening.gif">
+        <li>To indicate a warning to the slug cat / "Stay Back" they would hold up their spears or weapon and aim it at the slugcat.</li>
+        <img src="assets/images/Scavenger_want.gif">
+        <li>When at a toll booth, this gesture of pawing at the ground indicates the scavenger want the pearl in the slugcat's hand in order to pass</li>   
+    </ul>
+
+    <h4>Trading and Toll Booths</h4>
+    <p>You are able to trade objects you find around the world with scavengers, they particularily like pearls, which can be exchanged for passing at a Scavenger toll booth. Scavengers drop more items if reputation with them is high</p>
+    <ul>
+        <img src="assets/images/tollBooth.png">
+        <li>Scavenger Toll Booth, need to trade in 1 pearl for passage</li>
+        <img src="assets/images/Scavenger_Merchant.png">
+        <li>Scavenger Merchants are unique scavengers that usually are contained in a singular room with their wares. They are typically non-hostile and are more willing to trade with the slugcat than just take things.</li>
+        <img src="assets/images/Scavenger_Treasury.png">
+        <li>Scavengers have a treasury where they put most of their valuables in. Taking anything in it will make the surrounding scavengers hostile and lower reputation.</li>
+    </ul>
+
+    <h4>Tribes</h4>
+    <p>There are 3 different types of tribes for scavengers around the world</p>
+    <ul>
+        <p>Nomads</p>
+        <li>Nomads like their name suggests, are scavengers that move around a lot. If you befriend this tribe they will follow the slugcat and defend them, as well as hibernating with the slugcat.</li>
+        <p>Strongholds</p>
+        <li>These are the scavengers with the merchants and treasury</li>
+        <p>Toll Booth Scavengers</p>
+        <li>These are the scavengers that set up the toll booths.</li>
+    </ul>
+</section>
+
+<!-- =========================
+     Background Audio + Toggle
+========================= -->
+<audio id="bg-audio" loop>
+    <source src="assets/audios/rain.MP3" type="audio/mpeg">
+</audio>
+
+<button id="audio-toggle" class="audio-btn">🔊 Sound On</button>
+
+<!-- =========================
+     JavaScript
+========================= -->
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
